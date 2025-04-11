@@ -15,6 +15,7 @@ def parse_layout(layout: str) -> Tuple[Tuple[int, ...], Tuple[int, ...]]:
     stride = make_tuple(stride)
     return shape, stride
 
+
 def gen_make_shape_str(shape: Union[tuple, int]) -> str:
     if isinstance(shape, int):
         return f"{shape}"
