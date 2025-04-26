@@ -60,12 +60,12 @@ def visualize_atom(code: str, output_name: str):
             compile_cmd.append("-I")
             compile_cmd.append(str(path))
         subprocess.run(
-            compile_cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            compile_cmd, check=True, 
         )
 
         with open(tex_file.name, "w") as f:
             subprocess.run(
-                [executable_file.name], stdout=f, check=True, stderr=subprocess.PIPE
+                [executable_file.name], stdout=f, check=True, 
             )
 
         # Use output_name for the PDF file
@@ -84,7 +84,6 @@ def visualize_atom(code: str, output_name: str):
                 latex_command,
                 check=True,
                 stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
             )
 
             # Move the final PDF to the current directory
@@ -94,7 +93,6 @@ def visualize_atom(code: str, output_name: str):
                     ["mv", temp_pdf_path, "."],
                     check=True,
                     stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
                 )
             else:
                 print(f"Error: PDF was not generated in {temp_dir}")
